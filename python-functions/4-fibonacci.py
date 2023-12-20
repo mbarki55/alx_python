@@ -1,8 +1,8 @@
 def fibonacci_sequence(n):
-    fibunacci =[0,1]
-    while len(fibunacci) < n:
-        next_numb = fibunacci[-1]+ fibunacci[-2]
-        fibunacci = fibunacci + next_numb
-    return fibunacci [:n]
+    fibonacci =[0,1]
+    while len(fibonacci) < n:
+        next_numb = fibonacci[-1]+ fibonacci[-2]
+        fibonacci = n + next_numb
+    return fibonacci [:n]
    
 
