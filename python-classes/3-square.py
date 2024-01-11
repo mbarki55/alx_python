@@ -8,22 +8,24 @@ class Square():
             raise ValueError("size must be >= 0")
         self.__size = size
     
-"""getter method that return the size"""
-@property
-def size(self):
+
+    """getter method that return the size"""
+    @property
+    def size(self):
         return self.__size
     
 
-""""setter method that set a new value"""
-@size.setter
-def size(self, value):
+    """"setter method that set a new value"""
+    @size.setter
+    def size(self, value):
         if not isinstance(value,int):
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value  
+        self.__size = value
 
 
-"""Define instance method area"""
-def area(self):
+    """Define instance method area"""
+    def area(self):
         return self.__size * self.__size
+    
