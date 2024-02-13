@@ -1,19 +1,17 @@
-from sys import argv
-from model_state import Base, State
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
-engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}".format(argv[1],
-                                                                   argv[2],
-                                                                   argv[3]))
+Base = declarative_base()
 
-Session = sessionmaker(bind=engine)
+class State(Base):
+    """ created State class"""
+    __tablename__ = 'states'
+    id = Column(Integer, 
+                primary_key=True, 
+                autoincrement=True, 
+                unique=True, 
+                nullable=False)
+    name =  Column(String(128),
+                   nullable=False)
 
-session = Session()
-Base.metadata.create_all(engine)
-
-states = session.query(State).order_by(State.id).all()
-for state in states:
-    print("{}: {}".format(state.id, state.name))
-
-session.close()
+  
