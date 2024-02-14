@@ -28,7 +28,7 @@ def number(n):
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
     if isinstance(n, int):
-        return f'<h1>Number: {n}</h1>'
+        return f'<html><body><h1>Number: {n}</h1></body></html>'
     else:
         return 'Not an integer'
 
