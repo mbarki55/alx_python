@@ -16,6 +16,8 @@ def hbnb():
 def c_text(text):
     return 'C ' + text.replace('_', ' ')
 
+'''Route to display "Python" followed by the provided text'''
+
 @app.route('/python/', defaults={'text': 'is_cool'})
 @app.route('/python/<text>', strict_slashes=False)
 def python_text(text):
