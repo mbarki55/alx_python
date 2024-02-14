@@ -1,5 +1,4 @@
 from flask import Flask
-import re
 
 app = Flask(__name__)
 
@@ -26,16 +25,19 @@ def python_text(text):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
-    return f'{n} is a number'
+    """Route to display "n is a number" if n is an integer."""
+    if isinstance(n, int):
+        return f'{n} is a number'
+    else:
+        return 'Not Found', 404
 
-@app.route('/number_template/<int(n)>', strict_slashes=False)
+@app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
-    """Route to display 'Number: n' where n is an integer."""
-    return f'<html><body><h1>Number: {n}</h1></body></html>'
+    """Route to display an HTML page with "Number: n" if n is an integer."""
+    if isinstance(n, int):
+        return f'<html><body><h1>Number: {n}</h1></body></html>'
+    else:
+        return 'Not Found', 404
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-
-
-
-
