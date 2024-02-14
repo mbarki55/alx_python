@@ -28,6 +28,8 @@ def number(n):
     return f'{n} is a number'
 
 
+# Route to display "Number: n" where n is an integer
+
 @app.route('/number_template/<int(n)>', strict_slashes=False)
 def number_template(n):
     return f'<html><body><h1>Number: {n}</h1></body></html>'
