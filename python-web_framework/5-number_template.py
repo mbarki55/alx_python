@@ -25,12 +25,11 @@ def python_text(text):
 def number(n):
     return f'{n} is a number'
 
-@app.route('/number_template/<int:n>', strict_slashes=False)
+
+@app.route('/number_template/<int(n)>', strict_slashes=False)
 def number_template(n):
-    if isinstance(n, int):
-        return f'<html><body><h1>Number: {n}</h1></body></html>'
-    else:
-        return 'Not an integer'
+    return f'<html><body><h1>Number: {n}</h1></body></html>'
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
