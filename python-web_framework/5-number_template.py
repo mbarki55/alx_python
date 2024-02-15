@@ -3,7 +3,7 @@
 from flask import Flask, render_template
 
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
@@ -37,5 +37,5 @@ def display_nInt (n):
     return render_template("5-number.html", number = n)
 
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     app.run(debug=True, host= "0.0.0.0")
