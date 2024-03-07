@@ -15,3 +15,5 @@ for row in rows:
 
 cursor.close()
 config_connect.close()
+
+
